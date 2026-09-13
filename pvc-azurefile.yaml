@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-azurefile-entraid
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile-csi-entraid
+  resources:
+    requests:
+      storage: 5Gi
