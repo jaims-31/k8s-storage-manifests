@@ -18,6 +18,8 @@ metadata:
   namespace: app-bdd
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: postgres
@@ -25,6 +27,8 @@ spec:
     metadata:
       labels:
         app: postgres
+      annotations:
+        backup.velero.io/backup-volumes: postgres-data
     spec:
       containers:
       - name: postgres
